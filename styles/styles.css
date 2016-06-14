@@ -1,0 +1,29 @@
+
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Open Sans', sans-serif;
+}
+
+.fullName .titlePartyState{
+  font-weight: bolder;
+  font-size: x-large;
+}
+
+.contact-details{
+  font-size: small;
+}
+
+.card{
+  min-width: 30%;
+  padding: 10px;
+  display: inline-block;
+  background: #bbbbbb;
+  margin-bottom: 20px;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
