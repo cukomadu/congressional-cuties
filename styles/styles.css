@@ -17,17 +17,11 @@ body{
   font-size: small;
 }
 
-#container{
-  /*display: flex;
-  flex-wrap: wrap; */
-  margin-: 0, auto;
-} 
 
 .cardContainer{
   min-width: 30%; 
   padding: 10px;
   display: inline-block; 
-  /*flex: 3; */
   background: #bbbbbb;
   margin-bottom: 20px;
   margin-left: 1%;
