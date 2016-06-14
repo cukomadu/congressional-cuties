@@ -17,13 +17,21 @@ body{
   font-size: small;
 }
 
-.card{
-  min-width: 30%;
+#container{
+  /*display: flex;
+  flex-wrap: wrap; */
+  margin-: 0, auto;
+} 
+
+.cardContainer{
+  min-width: 30%; 
   padding: 10px;
-  display: inline-block;
+  display: inline-block; 
+  /*flex: 3; */
   background: #bbbbbb;
   margin-bottom: 20px;
   margin-left: 1%;
   margin-right: 1%;
+
 }
 

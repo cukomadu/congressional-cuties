@@ -9,46 +9,46 @@ var Promise = $.getJSON('https://congress.api.sunlightfoundation.com/legislators
 
 
 // Define Key Elements
-var mainContainer = document.querySelector("#container")
+//var mainContainer = document.querySelector("#container")
 
 
 
 // Define Functions and Other Tools
 var inputData = function(apiResponse) {
-    //console.log(apiResponse)
+    console.log(apiResponse)
   	var congressArray = apiResponse.results
-    var htmlString = ''
+  	var htmlString = ''
     for (var i = 0; i < congressArray.length; i++) {
-        var congressObject = congressArray[i]
-        
-        var fullName = congressObject.first_name + ' ' + congressObject.last_name
-        var titlePartyState = congressObject.title + ' ' + '--' + congressObject.party + '-' + congressObject.state_name
-        var email = congressObject.oc_email
-        var website = congressObject.website
-        var facebook = congressObject.facebook_id
-        var twitter = congressObject.twitter_id
-        var termEnd = congressObject.term_end
-  
-		// create html elements  
+     var congressObject = congressArray[i]
+
+     		fullName = congressObject.first_name + ' ' + congressObject.last_name,
+     		titlePartyState = congressObject.title + ' ' + '--' + congressObject.party + '-' + congressObject.state_name,
+     		email = congressObject.oc_email,
+     		website = congressObject.website,
+     		facebook = congressObject.facebook_id,
+     		twitter = congressObject.twitter_id,
+     		termEnd = congressObject.term_end
+     
+     if(facebook === undefined || twitter === undefined){
+     	facebook = "not listed"
+     	twitter = "not listed"
+     }
+			
+			// create html elements  
+		htmlString += '<div class="cardContainer">'
         htmlString += '<h3 class="fullName">' + fullName + '</h3>' 
         htmlString += '<h4 class="titlePartyState">' + titlePartyState + '</h4>' 
         htmlString += '<li class="contact-deatils">email: ' + email + '</li>'
         htmlString += '<li class="contact-deatils">website: ' + website + '</li>'
         htmlString += '<li class="contact-deatils">facebook: ' + facebook + '</li>'
         htmlString += '<li class="contact-deatils">twitter: ' + twitter + '</li>'
-        htmlString += '<p class="term-end">' + "Term End" + termEnd + '</p>'
-
-        var congressCard = document.createElement("div")
-		congressCard.className = "card"
-		console.log(congressCard)
-		
-		mainContainer.appendChild(congressCard)
-		var congressCardContainer = document.querySelector(".card")
+        htmlString += '<p class="term-end">' + "Term End" + termEnd + '</p>' 
+        htmlString += '</div>'
 
     }
-    	
-
-     	congressCardContainer.innerHTML = htmlString
+	
+	var mainContainer = document.querySelector("#container")
+    mainContainer.innerHTML = htmlString
 }
 
 
